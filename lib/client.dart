@@ -687,7 +687,8 @@ class Router {
       appRoot.onClick.listen((MouseEvent e) {
         if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.target is AnchorElement) {
           AnchorElement anchor = e.target;
-          if (anchor.host == _window.location.host) {
+          if (anchor.href != null && anchor.href.isNotEmpty &&
+              anchor.host == _window.location.host) {
             _logger.finest('clicked ${anchor.pathname}${anchor.hash}');
             e.preventDefault();
             var path;
